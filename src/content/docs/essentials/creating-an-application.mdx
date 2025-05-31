@@ -4,7 +4,7 @@ description: A guide in my new Starlight docs site.
 ---  
 
 ## The application instance​
-Every Vue application starts by creating a new application instance with the `createApp` function:  
+Every Vue application starts by creating a new **application instance** with the [ `createApp` ](https://vuejs.org/api/application.html#createapp)function:  
 
 ```
 import { createApp } from 'vue'
@@ -52,7 +52,7 @@ In later sections of the guide, we will discuss how to define and compose multip
 ----
 
 ## Mounting the App​
-An application instance won't render anything until its .mount() method is called. It expects a "container" argument, which can either be an actual DOM element or a selector string:
+An application instance won't render anything until its `.mount()` method is called. It expects a "container" argument, which can either be an actual DOM element or a selector string:
 
 ```
 <div id="app"></div>
@@ -95,7 +95,7 @@ app.mount('#app')
 
 Vue will automatically use the container's `innerHTML` as the template if the root component does not already have a `template` option.
 
-In-DOM templates are often used in applications that are using Vue without a build step. They can also be used in conjunction with server-side frameworks, where the root template might be generated dynamically by the server.
+In-DOM templates are often used in applications that are [using Vue without a build step](https://vuejs.org/guide/quick-start.html#using-vue-from-cdn). They can also be used in conjunction with server-side frameworks, where the root template might be generated dynamically by the server.
 
 ----  
 
@@ -116,7 +116,7 @@ The application instance also provides a few methods for registering app-scoped 
 app.component('TodoDeleteButton', TodoDeleteButton)
 
 ```  
-This makes the `TodoDeleteButton` available for use anywhere in our app. We will discuss registration for components and other types of assets in later sections of the guide. You can also browse the full list of application instance APIs in its API reference.
+This makes the `TodoDeleteButton` available for use anywhere in our app. We will discuss registration for components and other types of assets in later sections of the guide. You can also browse the full list of application instance APIs in its [API reference](https://vuejs.org/api/application.html).
 
 Make sure to apply all app configurations before mounting the app!
 

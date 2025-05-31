@@ -4,12 +4,12 @@ description: A guide in my new Starlight docs site.
 ---
 import { Aside } from '@astrojs/starlight/components';
 
-> This page assumes you've already read the Components Basics. Read that first if you are new to components.  
+> This page assumes you've already read the [Components Basics](https://vuejs.org/guide/essentials/component-basics.html). Read that first if you are new to components.  
 
 ----
 
 ## Props Declaration​
-Vue components require explicit props declaration so that Vue knows what external props passed to the component should be treated as fallthrough attributes (which will be discussed in its dedicated section).
+Vue components require explicit props declaration so that Vue knows what external props passed to the component should be treated as fallthrough attributes (which will be discussed in [its dedicated section](https://vuejs.org/guide/components/attrs.html)).
 
 In SFCs using `<script setup>`, props can be declared using the `defineProps()` macro:
 
@@ -20,7 +20,7 @@ const props = defineProps(['foo'])
 console.log(props.foo)
 </script>
 ```  
-In non-`<script setup>` components, props are declared using the props option:
+In non-`<script setup>` components, props are declared using the[ `props` ](https://vuejs.org/api/options-state.html#props)option:
 
 ```
 export default {
@@ -54,7 +54,7 @@ export default {
 
 For each property in the object declaration syntax, the key is the name of the prop, while the value should be the constructor function of the expected type.
 
-This not only documents your component, but will also warn other developers using your component in the browser console if they pass the wrong type. We will discuss more details about prop validation further down this page.
+This not only documents your component, but will also warn other developers using your component in the browser console if they pass the wrong type. We will discuss more details about [prop validation](https://vuejs.org/guide/components/props.html#prop-validation) further down this page.
 
 If you are using TypeScript with `<script setup>`, it's also possible to declare props using pure type annotations:
 
@@ -66,7 +66,7 @@ defineProps<{
 }>()
 </script>
 ```
-More details: Typing Component Props
+More details: [Typing Component Props](https://vuejs.org/guide/typescript/composition-api.html#typing-component-props)
 
 ----
 ### Reactive Props Destructure ​
@@ -121,7 +121,7 @@ In addition, this is the recommended approach when we need to pass a destructure
 ```
 useComposable(() => foo)
 ```
-The external function can call the getter (or normalize it with toValue) when it needs to track changes of the provided prop, e.g. in a computed or watcher getter.
+The external function can call the getter (or normalize it with [toValue](https://vuejs.org/api/reactivity-utilities.html#tovalue)) when it needs to track changes of the provided prop, e.g. in a computed or watcher getter.
 
 ----
 
@@ -139,12 +139,12 @@ defineProps({
 ```
 
 
-Technically, you can also use camelCase when passing props to a child component (except in in-DOM templates). However, the convention is using kebab-case in all cases to align with HTML attributes:
+Technically, you can also use camelCase when passing props to a child component (except in [in-DOM templates](https://vuejs.org/guide/essentials/component-basics.html#in-dom-template-parsing-caveats)). However, the convention is using kebab-case in all cases to align with HTML attributes:
 
 ```
 <MyComponent greeting-message="hello" />
 ```  
-We use PascalCase for component tags when possible because it improves template readability by differentiating Vue components from native elements. However, there isn't as much practical benefit in using camelCase when passing props, so we choose to follow each language's conventions.
+We use [PascalCase for component tags](https://vuejs.org/guide/components/registration.html#component-name-casing) when possible because it improves template readability by differentiating Vue components from native elements. However, there isn't as much practical benefit in using camelCase when passing props, so we choose to follow each language's conventions.
 
 ## Static vs. Dynamic Props​
 So far, you've seen props passed as static values, like in:
@@ -152,7 +152,7 @@ So far, you've seen props passed as static values, like in:
 ```
 <BlogPost title="My journey with Vue" />
 ```
-You've also seen props assigned dynamically with v-bind or its : shortcut, such as in:
+You've also seen props assigned dynamically with `v-bind` or its `:` shortcut, such as in:
 
 ```
 <!-- Dynamically assign the value of a variable -->
@@ -215,7 +215,7 @@ In the two examples above, we happen to pass string values, but any type of valu
 ```
 
 ### Binding Multiple Properties Using an Object​
-If you want to pass all the properties of an object as props, you can use [ `v-bind` ](https://vuejs.org/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) without an argument (`v-bind` instead of `:prop-name`). For example, given a post object:
+If you want to pass all the properties of an object as props, you can use [ `v-bind` ](https://vuejs.org/guide/essentials/template-syntax.html#dynamically-binding-multiple-attributes) without an argument (`v-bind` instead of `:prop-name`). For example, given a `post` object:
 
 ```
 const post = {
@@ -266,7 +266,7 @@ const counter = ref(props.initialCounter)
 #### Mutating Object / Array Props​
 When objects and arrays are passed as props, while the child component cannot mutate the prop binding, it **will** be able to mutate the object or array's nested properties. This is because in JavaScript objects and arrays are passed by reference, and it is unreasonably expensive for Vue to prevent such mutations.
 
-The main drawback of such mutations is that it allows the child component to affect parent state in a way that isn't obvious to the parent component, potentially making it more difficult to reason about the data flow in the future. As a best practice, you should avoid such mutations unless the parent and child are tightly coupled by design. In most cases, the child should emit an event to let the parent perform the mutation.
+The main drawback of such mutations is that it allows the child component to affect parent state in a way that isn't obvious to the parent component, potentially making it more difficult to reason about the data flow in the future. As a best practice, you should avoid such mutations unless the parent and child are tightly coupled by design. In most cases, the child should [emit an event](https://vuejs.org/guide/components/events.html) to let the parent perform the mutation.
 
 ---- 
 
@@ -342,20 +342,20 @@ Additional details:
 
 When prop validation fails, Vue will produce a console warning (if using the development build).
 
-If using Type-based props declarations , Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
+If using T[ype-based props declarations](https://vuejs.org/api/sfc-script-setup.html#type-only-props-emit-declarations) , Vue will try its best to compile the type annotations into equivalent runtime prop declarations. For example, `defineProps<{ msg: string }>` will be compiled into `{ msg: { type: String, required: true }}`.
 
 #### Runtime Type Checks​
 The `type` can be one of the following native constructors:
 
-* String
-* Number
-* Boolean
-* Array
-* Object
-* Date
-* Function
-* Symbol
-* Error
+* `String`
+* `Number`
+* `Boolean`
+* `Array`
+* `Object`
+* `Date`
+* `Function`
+* `Symbol`
+* `Error`
 In addition, `type` can also be a custom class or constructor function and the assertion will be made with an `instanceof` check. For example, given the following class:
 
 ```

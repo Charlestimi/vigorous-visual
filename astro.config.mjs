@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import vue from '@astrojs/vue';
 
 
 
@@ -10,10 +11,20 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
+		vue(),
 		starlight({
 			title: 'Vue.js',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/vuejs/' },{ icon: 'twitter', label: 'Twitter', href: 'https://x.com/vuejs' },{ icon: 'discord', label: 'Discord', href: 'https://discord.com/invite/vue' }]
-			,sidebar: [
+			favicon: '/favicon.svg',
+            customCss:[ './src/styles/custom.css'		
+			],
+		
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/vuejs/' },
+			    { icon: 'twitter', label: 'Twitter', href: 'https://x.com/vuejs' }, 
+				{ 	icon: 'discord', label: 'Discord', href: 'https://discord.com/invite/vue' },
+			],
+			
+			sidebar: [
 				{
 					label: 'Getting Started',
 					items: [// Each item here is one entry in the navigation menu.

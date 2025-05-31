@@ -7,7 +7,7 @@ import { Aside } from '@astrojs/starlight/components';
 <Aside>
  API Preference
 
-This page and many other chapters later in the guide contain different content for the Options API and the Composition API. Your current preference is Composition API. You can toggle between the API styles using the "API Preference" switches at the top of the left sidebar.
+This page and many other chapters later in the guide contain different content for the Options API and the Composition API. Your current preference is **Composition API**. You can toggle between the API styles using the "API Preference" switches at the top of the left sidebar.
 
 </Aside>
 ----  
@@ -16,7 +16,7 @@ This page and many other chapters later in the guide contain different content f
 
 ####  **`ref()​`**  
 
-In Composition API, the recommended way to declare reactive state is using the `ref()` function:  
+In Composition API, the recommended way to declare reactive state is using the [ `ref()` ](https://vuejs.org/api/reactivity-core.html#ref)function:  
 
 ```
 import { ref } from 'vue'
@@ -35,7 +35,7 @@ console.log(count.value) // 0
 count.value++
 console.log(count.value) // 1
 ```  
->See also: Typing Refs 
+>See also: [Typing Refs](https://vuejs.org/guide/typescript/composition-api.html#typing-ref) 
 
 To access refs in a component's template, declare and return them from a component's `setup()` function:
 
@@ -60,7 +60,7 @@ export default {
 ```  
 
 Notice that we did **not** need to append `.value` when using the ref in the template.
-For convenience, refs are automatically unwrapped when used inside templates (with a few caveats).  
+For convenience, refs are automatically unwrapped when used inside templates (with a few [caveats](https://vuejs.org/guide/essentials/reactivity-fundamentals.html#caveat-when-unwrapping-in-templates)).  
 
 You can also mutate a ref directly in event handlers:  
 
@@ -101,11 +101,11 @@ Exposed methods can then be used as event handlers:
 </button>
 ```  
 
-Here's the example live on Codepen, without using any build tools.
+Here's the example live on [Codepen](https://codepen.io/vuejs-examples/pen/WNYbaqo), without using any build tools.
 
 ####  `<script setup>`​
-Manually exposing state and methods via setup() can be verbose. Luckily, 
-it can be avoided when using Single-File Components (SFCs).We can simplify the usage with `<script setup>`:  
+Manually exposing state and methods via `setup()` can be verbose. Luckily, 
+it can be avoided when using [Single-File Components (SFCs)](https://vuejs.org/guide/scaling-up/sfc.html).We can simplify the usage with `<script setup>`:  
 
  ```
  <script setup>
@@ -126,7 +126,7 @@ function increment() {
 
  ```  
 
-Try it in the Playground
+[Try it in the Playground](https://bit.ly/4dzGhBx)
 
 Top-level imports, variables and functions declared in `<script setup>` are automatically usable in the template of the same component. Think of the template as a JavaScript function declared in the same scope - it naturally has access to everything declared alongside it.
 
@@ -134,7 +134,7 @@ Top-level imports, variables and functions declared in `<script setup>` are auto
 
 For the rest of the guide, we will be primarily using SFC + `<script setup>` syntax for the Composition API code examples, as that is the most common usage for Vue developers.
 
-If you are not using SFC, you can still use Composition API with the `setup()` option.
+If you are not using SFC, you can still use Composition API with the[ `setup()` ](https://vuejs.org/api/composition-api-setup.html)option.
 
 </Aside>  
 
@@ -169,7 +169,7 @@ const myRef = {
 Another nice trait of refs is that unlike plain variables, 
 you can pass refs into functions while retaining access to the latest value and the reactivity connection. This is particularly useful when refactoring complex logic into reusable code.  
 
-The reactivity system is discussed in more details in the Reactivity in Depth section.  
+The reactivity system is discussed in more details in the [Reactivity in Depth](https://vuejs.org/guide/extras/reactivity-in-depth.html) section.  
 
 #### Deep Reactivity  
 ​
@@ -193,21 +193,21 @@ function mutateDeeply() {
 }
 ```  
 
-Non-primitive values are turned into reactive proxies via `reactive()`, which is discussed below.  
+Non-primitive values are turned into reactive proxies via[ `reactive()` ](https://vuejs.org/guide/essentials/reactivity-fundamentals.html#reactive), which is discussed below.  
 
-It is also possible to opt-out of deep reactivity with shallow refs. For shallow refs, only `.value` access is tracked for reactivity. 
+It is also possible to opt-out of deep reactivity with [shallow refs](https://vuejs.org/api/reactivity-advanced.html#shallowref). For shallow refs, only `.value` access is tracked for reactivity. 
 Shallow refs can be used for optimizing performance by avoiding the observation cost of large objects, or in cases where the inner state is managed by an external library.  
 
 Further reading:
 
-* Reduce Reactivity Overhead for Large Immutable Structures
-* Integration with External State Systems  
+* [Reduce Reactivity Overhead for Large Immutable Structures](https://vuejs.org/guide/best-practices/performance.html#reduce-reactivity-overhead-for-large-immutable-structures)
+* [Integration with External State Systems](https://vuejs.org/guide/extras/reactivity-in-depth.html#integration-with-external-state-systems)  
 
 ### DOM Update Timing​
 When you mutate reactive state, the DOM is updated automatically. 
 However, it should be noted that the DOM updates are not applied synchronously. Instead, Vue buffers them until the "next tick" in the update cycle to ensure that each component updates only once no matter how many state changes you have made.
 
-To wait for the DOM update to complete after a state change, you can use the nextTick() global API:  
+To wait for the DOM update to complete after a state change, you can use the [nextTick()](https://vuejs.org/api/general.html#nexttick) global API:  
 
 ```
 import { nextTick } from 'vue'
@@ -219,7 +219,7 @@ async function increment() {
 }
 ```  
 
-#### `reactive()`​  
+### `reactive()`​  
 
 There is another way to declare reactive state, with the `reactive()` API. `
 Unlike a ref which wraps the inner value in a special object, `reactive()` makes an object itself reactive:` 
@@ -230,7 +230,7 @@ import { reactive } from 'vue'
 const state = reactive({ count: 0 })
 ```
 
-> See also: Typing Reactive 
+> See also: [Typing Reactive](https://vuejs.org/guide/typescript/composition-api.html#typing-reactive) 
 
 Usage in template:  
 
@@ -240,14 +240,14 @@ Usage in template:
 </button>
 ```
 
-Reactive objects are JavaScript Proxies and behave just like normal objects. 
+Reactive objects are [JavaScript Proxies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) and behave just like normal objects. 
 The difference is that Vue is able to intercept the access and mutation of all properties of a reactive object for reactivity tracking and triggering.
 
 `reactive()` converts the object deeply: nested objects are also wrapped with reactive() when accessed.
-It is also called by `ref()` internally when the ref value is an object. Similar to shallow refs, there is also the `shallowReactive()` API for opting-out of deep reactivity.
+It is also called by `ref()` internally when the ref value is an object. Similar to shallow refs, there is also the[ `shallowReactive()` ](https://vuejs.org/api/reactivity-advanced.html#shallowreactive)API for opting-out of deep reactivity.
 
-##### Reactive Proxy vs. Original​
-It is important to note that the returned value from `reactive()` is a Proxy of the original object, which is not equal to the original object:
+#### Reactive Proxy vs. Original​
+It is important to note that the returned value from `reactive()` is a [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) of the original object, which is not equal to the original object:
 
 ```
 const raw = {}
@@ -282,11 +282,11 @@ proxy.nested = raw
 console.log(proxy.nested === raw) // false
 ```
 
-##### **Limitations of `reactive()`​**
+#### **Limitations of `reactive()`​**
 
 The `reactive()` API has a few limitations:
 
-1 **Limited value types**: it only works for object types (objects, arrays, and collection types such as `Map` and `Set`). It cannot hold primitive types such as `string`, `number` or `boolean`.
+1 **Limited value types**: it only works for object types (objects, arrays, and [collection types](https://bit.ly/4mzbMQq) such as `Map` and `Set`). It cannot hold [primitive types](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) such as `string`, `number` or `boolean`.
 
 2 **Cannot replace entire object**: since Vue's reactivity tracking works over property access, 
 we must always keep the same reference to the reactive object. This means we can't easily "replace" a reactive object because the reactivity connection to the first reference is lost:
@@ -315,7 +315,7 @@ count++
 callSomeFunction(state.count)
 ```
 
-Due to these limitations, we recommend using ref() as the primary API for declaring reactive state.
+Due to these limitations, we recommend using `ref()` as the primary API for declaring reactive state.
 
 ----
 
@@ -342,7 +342,7 @@ console.log(state.count) // 2
 // original ref is now disconnected from state.count
 console.log(count.value) // 1
 ```
-Ref unwrapping only happens when nested inside a deep reactive object. It does not apply when it is accessed as a property of a shallow reactive object.
+Ref unwrapping only happens when nested inside a deep reactive object. It does not apply when it is accessed as a property of a [shallow reactive object](https://vuejs.org/api/reactivity-advanced.html#shallowreactive).
 #### Caveat in Arrays and Collections​
 Unlike reactive objects, there is no unwrapping performed when the ref is accessed as an element of a reactive array or a native collection type like `Map`:
 ```
@@ -365,7 +365,7 @@ Therefore, this expression works as expected:
 ```
 {{ count + 1 }}
 ```
-...while this one does NOT:
+...while this one does **NOT**:
 ```
 {{ object.id + 1 }}
 ```

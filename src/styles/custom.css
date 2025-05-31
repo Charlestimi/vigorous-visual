@@ -1,0 +1,72 @@
+:root {
+  /* Further reduced typography for a more compact look */
+  --sl-content-width: 45rem;     /* Reduced from 50rem → 42rem (≈ 672px) */
+  --sl-text-5xl: 1.75rem;    /* h1 – Page title (28px) */
+  --sl-text-4xl: 1.25rem;    /* h2 – Section headings (20px) */
+  --sl-text-3xl: 1rem;       /* h3 – Subsection headings (16px) */
+  --sl-text-xl: 0.875rem;    /* Body text (14px) */
+}
+
+/* Optional: Keep font rendering sleek */
+html {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Use Vue's green color for links */
+a {
+  color: #42b983;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar customizations */
+.sl-sidebar {
+  background-color: #f8f9fa;       /* Light grey background */
+  width: 240px !important;         /* Slimmer sidebar (default ~300px) */
+  border-right: 1px solid #e0e0e0; /* Subtle right border */
+  padding: 1rem 0.5rem;            /* Vertical and horizontal padding */
+  overflow-y: auto;                /* Scroll if content overflows */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.05); /* Inset shadow for depth */
+}
+
+
+.sl-sidebar a:hover {
+  background-color: #e9ecef;
+  color: #42b983; /* Vue green on hover */
+}
+
+/* Dark mode colors. */
+:root {
+  --sl-color-accent-low: #002c1e;
+  --sl-color-accent: #007d5c;
+  --sl-color-accent-high: #8ddcbc;
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #eceeee;
+  --sl-color-gray-2: #c0c2c3;
+  --sl-color-gray-3: #898c8d;
+  --sl-color-gray-4: #565959;
+  --sl-color-gray-5: #363939;
+  --sl-color-gray-6: #252728;
+  --sl-color-black: #171819;
+}
+/* Light mode colors. */
+:root[data-theme='light'] {
+  --sl-color-accent-low: #ace6ce;
+  --sl-color-accent: #007355;
+  --sl-color-accent-high: #003c2b;
+  --sl-color-white: #171819;
+  --sl-color-gray-1: #252728;
+  --sl-color-gray-2: #363939;
+  --sl-color-gray-3: #565959;
+  --sl-color-gray-4: #898c8d;
+  --sl-color-gray-5: #c0c2c3;
+  --sl-color-gray-6: #eceeee;
+  --sl-color-gray-7: #f6f6f6;
+  --sl-color-black: #ffffff;
+}

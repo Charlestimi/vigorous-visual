@@ -17,7 +17,7 @@ We can pass an object to `:class` (short for `v-bind:class`) to dynamically togg
 ```
 <div :class="{ active: isActive }"></div>
 ```
-The above syntax means the presence of the `active` class will be determined by the truthiness of the data property `isActive`.
+The above syntax means the presence of the `active` class will be determined by the [truthiness](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) of the data property `isActive`.
 
 You can have multiple classes toggled by having more fields in the object. In addition, the `:class` directive can also co-exist with the plain `class` attribute. So given the following state:
 
@@ -57,7 +57,7 @@ This will render:
 ```
 <div class="active"></div>
 ```
-We can also bind to a computed property that returns an object. This is a common and powerful pattern:
+We can also bind to a [computed property](https://vuejs.org/guide/essentials/computed.html) that returns an object. This is a common and powerful pattern:
 
 ```
 const isActive = ref(true)
@@ -96,7 +96,7 @@ That's why it's also possible to use the object syntax inside the array syntax:
 <div :class="[{ [activeClass]: isActive }, errorClass]"></div>
 ```
 ### With Components​
-> This section assumes knowledge of Components. Feel free to skip it and come back later.
+> This section assumes knowledge of [Components](https://vuejs.org/guide/essentials/component-basics.html). Feel free to skip it and come back later.
 
 When you use the `class` attribute on a component with a single root element, those classes will be added to the component's root element and merged with any existing class already on it.
 
@@ -137,31 +137,32 @@ Will render:
 <p class="baz">Hi!</p>
 <span>This is a child component</span>
 ```
+You can learn more about component attribute inheritance in [Fallthrough Attributes](https://vuejs.org/guide/components/attrs.html) section.
+
 ----
 
 ### Binding Inline Styles​
 #### Binding to Objects​
-`:style` supports binding to JavaScript object values - it corresponds to an HTML element's style property:
+`:style` supports binding to JavaScript object values - it corresponds to an [HTML element's `style` property](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style):
 
 ```
-js
 const activeColor = ref('red')
 const fontSize = ref(30)
 ```
 ```
-template
+
 <div :style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
 ```
 Although camelCase keys are recommended, `:style` also supports kebab-cased CSS property keys (corresponds to how they are used in actual CSS) - for example:
 
 ```
-template
+
 <div :style="{ 'font-size': fontSize + 'px' }"></div>
 ```
 It is often a good idea to bind to a style object directly so that the template is cleaner:
 
 ```
-js
+
 const styleObject = reactive({
   color: 'red',
   fontSize: '30px'
@@ -177,30 +178,29 @@ Again, object style binding is often used in conjunction with computed propertie
 Template:
 
 ```
-template
+
 <h1 style="color: red" :style="'font-size: 1em'">hello</h1>
 
 ```
 It will render:
 ```
-template
 <h1 style="color: red; font-size: 1em;">hello</h1>
 ```
 #### Binding to Arrays​
 We can bind :style to an array of multiple style objects. These objects will be merged and applied to the same element:
 
 ```
-template
+
 <div :style="[baseStyles, overridingStyles]"></div>
 ```
 #### Auto-prefixing​
-When you use a CSS property that requires a vendor prefix in `:style`, Vue will automatically add the appropriate prefix. Vue does this by checking at runtime to see which style properties are supported in the current browser. If the browser doesn't support a particular property then various prefixed variants will be tested to try to find one that is supported.
+When you use a CSS property that requires a [vendor prefix](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) in `:style`, Vue will automatically add the appropriate prefix. Vue does this by checking at runtime to see which style properties are supported in the current browser. If the browser doesn't support a particular property then various prefixed variants will be tested to try to find one that is supported.
 
 #### Multiple Values​
 You can provide an array of multiple (prefixed) values to a style property, for example:
 
 ```
-template
+
 <div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>`
 ```
 This will only render the last value in the array which the browser supports. In this example, it will render `display: flex` for browsers that support the unprefixed version of flexbox.
