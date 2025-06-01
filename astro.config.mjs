@@ -14,6 +14,8 @@ export default defineConfig({
 		vue(),
 		starlight({
 			title: 'Vue.js',
+			logo: {
+              src: './src/assets/vue-js.png',},
 			favicon: '/favicon.svg',
             customCss:[ './src/styles/custom.css'		
 			],
