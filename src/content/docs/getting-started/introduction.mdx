@@ -7,7 +7,16 @@ import { Aside } from '@astrojs/starlight/components';
 import { Card } from '@astrojs/starlight/components';
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 import Counter from '../../../component/counter.vue';
+import { LinkButton } from '@astrojs/starlight/components';
 
+
+<Aside>  
+**You are reading the documentation for Vue 3!**
+
+* Vue 2 support has ended on Dec 31, 2023. Learn more about [Vue 2 EOL](https://v2.vuejs.org/eol/).
+* Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
+
+</Aside>
 
 <a
   href="https://www.vuemastery.com/courses/"
@@ -21,15 +30,6 @@ import Counter from '../../../component/counter.vue';
   </span>
   <img src="/gettingstarted/vue-mastery-logo.png" alt="Vue logo" width="100px" />
 </a>
-
-
-<Aside>  
-**You are reading the documentation for Vue 3!**
-
-* Vue 2 support has ended on Dec 31, 2023. Learn more about [Vue 2 EOL](https://v2.vuejs.org/eol/).
-* Upgrading from Vue 2? Check out the [Migration Guide](https://v3-migration.vuejs.org/).
-
-</Aside>
 
 ----
 
@@ -68,12 +68,16 @@ The above example demonstrates the two core features of Vue:
 
 You may already have questions - don't worry. We will cover every little detail in the rest of the documentation. For now, please read along so you can have a high-level understanding of what Vue offers.
 
+## Pre-requisite knowledge
 
-<Aside> 
+The rest of the documentation assumes basic familiarity with:
+* HTML
+* CSS 
+* JavaScript
 
-The rest of the documentation assumes basic familiarity with HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics and then come back! You can check your knowledge level with these overviews for [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Language_overview), [HTML](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content) and [CSS](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics) if needed. Prior experience with other frameworks helps, but is not required.
+If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics and then come back! You can check your knowledge level with these overviews for [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Language_overview), [HTML](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content) and [CSS](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics) if needed. Prior experience with other frameworks helps, but is not required.
 
-</Aside>
+
 
 ----
 
@@ -230,7 +234,15 @@ Different developers have different learning styles. Feel free to pick a learnin
   <LinkCard title="Check out the Examples" href="https://vuejs.org/examples/#hello-world" description="Explore examples of core features and common UI tasks." />
 </CardGrid>
 
-Edit this page on GitHub
+<LinkButton
+  href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fvuejs%2Fdocs%2Fedit%2Fmain%2Fsrc%2Fguide%2Fessentials%2Ftemplate-syntax.md"
+  variant="secondary"
+  icon="pen"
+  iconPlacement="start"
+>
+  Edit this page on GitHub
+</LinkButton>
+
 
 
 

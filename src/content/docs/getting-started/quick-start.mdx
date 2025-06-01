@@ -6,6 +6,7 @@ description: A guide in my new Starlight docs site.
 import { Aside } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import { LinkButton } from '@astrojs/starlight/components';
 
 
 ## Try Vue Online​
@@ -353,7 +354,14 @@ If you skipped the [Introduction](http://localhost:4321/getting-started/introduc
   
 </CardGrid>
 
-Edit this page on GitHub
+<LinkButton
+  href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fvuejs%2Fdocs%2Fedit%2Fmain%2Fsrc%2Fguide%2Fessentials%2Ftemplate-syntax.md"
+  variant="secondary"
+  icon="pen"
+  iconPlacement="start"
+>
+  Edit this page on GitHub
+</LinkButton>
 
 
 

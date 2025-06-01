@@ -2,6 +2,8 @@
 title: Computed Properties
 description: A guide in my new Starlight docs site.
 ---
+import { LinkButton } from '@astrojs/starlight/components';
+
 Watch a free video lesson on Vue School
 ## Basic Example​
 In-template expressions are very convenient, but they are meant for simple operations. Putting too much logic in your templates can make them bloated and hard to maintain. For example, if we have an object with a nested array:
@@ -152,6 +154,13 @@ It is important to remember that computed getter functions should only perform p
 #### Avoid mutating computed value​
 The returned value from a computed property is derived state. Think of it as a temporary snapshot - every time the source state changes, a new snapshot is created. It does not make sense to mutate a snapshot, so a computed return value should be treated as read-only and never be mutated - instead, update the source state it depends on to trigger new computations.
 
-[Edit this page on GitHub](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fvuejs%2Fdocs%2Fedit%2Fmain%2Fsrc%2Fguide%2Fessentials%2Fcomputed.md)
+<LinkButton
+  href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fvuejs%2Fdocs%2Fedit%2Fmain%2Fsrc%2Fguide%2Fessentials%2Ftemplate-syntax.md"
+  variant="secondary"
+  icon="pen"
+  iconPlacement="start"
+>
+  Edit this page on GitHub
+</LinkButton>
 
 

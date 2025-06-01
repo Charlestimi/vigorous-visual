@@ -2,6 +2,8 @@
 title: Class and Style Bindings
 description: A guide in my new Starlight docs site.
 ---
+import { LinkButton } from '@astrojs/starlight/components';
+
 A common need for data binding is manipulating an element's class list and inline styles. 
 Since `class` and `style` are both attributes, we can use `v-bind` to assign them a string value dynamically, much like with other attributes. 
 However, trying to generate those values using string concatenation can be annoying and error-prone. 
@@ -205,8 +207,15 @@ You can provide an array of multiple (prefixed) values to a style property, for 
 ```
 This will only render the last value in the array which the browser supports. In this example, it will render `display: flex` for browsers that support the unprefixed version of flexbox.
 
-Edit this page on GitHub
 
+<LinkButton
+  href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fvuejs%2Fdocs%2Fedit%2Fmain%2Fsrc%2Fguide%2Fessentials%2Ftemplate-syntax.md"
+  variant="secondary"
+  icon="pen"
+  iconPlacement="start"
+>
+  Edit this page on GitHub
+</LinkButton>
 
 
 

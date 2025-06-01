@@ -2,6 +2,8 @@
 title: Registration
 description: A guide in my new Starlight docs site.
 ---
+import { LinkButton } from '@astrojs/starlight/components';
+
 > This page assumes you've already read the [Components Basics](https://vuejs.org/guide/essentials/component-basics.html). Read that first if you are new to components.
 
 Watch a free video lesson on Vue School  
@@ -115,7 +117,14 @@ This is the recommended style when working with SFC or string templates. However
 
 Luckily, Vue supports resolving kebab-case tags to components registered using PascalCase. This means a component registered as `MyComponent` can be referenced inside a Vue template (or inside an HTML element rendered by Vue) via both `<MyComponent>` and `<my-component>`. This allows us to use the same JavaScript component registration code regardless of template source.
 
-Edit this page on GitHub
+<LinkButton
+  href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fvuejs%2Fdocs%2Fedit%2Fmain%2Fsrc%2Fguide%2Fessentials%2Ftemplate-syntax.md"
+  variant="secondary"
+  icon="pen"
+  iconPlacement="start"
+>
+  Edit this page on GitHub
+</LinkButton>
 
 
 

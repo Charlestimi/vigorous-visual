@@ -2,6 +2,7 @@
 title: Creating an Application
 description: A guide in my new Starlight docs site.
 ---  
+import { LinkButton } from '@astrojs/starlight/components';
 
 ## The application instance​
 Every Vue application starts by creating a new **application instance** with the [ `createApp` ](https://vuejs.org/api/application.html#createapp)function:  
@@ -139,7 +140,14 @@ app2.mount('#container-2')
 
 If you are using Vue to enhance server-rendered HTML and only need Vue to control specific parts of a large page, avoid mounting a single Vue application instance on the entire page. Instead, create multiple small application instances and mount them on the elements they are responsible for.
 
-Edit this page on GitHub
+<LinkButton
+  href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fvuejs%2Fdocs%2Fedit%2Fmain%2Fsrc%2Fguide%2Fessentials%2Ftemplate-syntax.md"
+  variant="secondary"
+  icon="pen"
+  iconPlacement="start"
+>
+  Edit this page on GitHub
+</LinkButton>
 
 ----
 

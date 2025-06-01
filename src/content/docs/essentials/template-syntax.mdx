@@ -5,6 +5,7 @@ description: A guide in my new Starlight docs site.
 
 import { Aside } from '@astrojs/starlight/components';
 import { Card } from '@astrojs/starlight/components';
+import { LinkButton } from '@astrojs/starlight/components';
 
 Watch an interactive video lesson on Scrimba
 
@@ -328,8 +329,14 @@ And finally, here's the full directive syntax visualized:
 ![Template Syntax](/essentials/template-syntax.png)
 
 
-Edit this page on GitHub
-
+<LinkButton
+  href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fvuejs%2Fdocs%2Fedit%2Fmain%2Fsrc%2Fguide%2Fessentials%2Ftemplate-syntax.md"
+  variant="secondary"
+  icon="pen"
+  iconPlacement="start"
+>
+  Edit this page on GitHub
+</LinkButton>
 
 
 

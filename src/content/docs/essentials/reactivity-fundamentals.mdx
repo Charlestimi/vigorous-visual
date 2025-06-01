@@ -3,6 +3,7 @@ title: Reactivity Fundamentals
 description: A guide in my new Starlight docs site.
 ---  
 import { Aside } from '@astrojs/starlight/components';
+import { LinkButton } from '@astrojs/starlight/components';
 
 <Aside>
  API Preference
@@ -384,7 +385,14 @@ Another thing to note is that a ref does get unwrapped if it is the final evalua
 ```
 This is just a convenience feature of text interpolation and is equivalent to `{{ object.id.value }}`.
 
-Edit this page on GitHub
+<LinkButton
+  href="https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fvuejs%2Fdocs%2Fedit%2Fmain%2Fsrc%2Fguide%2Fessentials%2Ftemplate-syntax.md"
+  variant="secondary"
+  icon="pen"
+  iconPlacement="start"
+>
+  Edit this page on GitHub
+</LinkButton>
 
 ----
 
